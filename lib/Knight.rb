@@ -26,21 +26,25 @@ class Knight
   end
 
   def knight_moves(start, finish)
-    queue = [start]
+    queue = [[start]]
     order = []
 
     while(!queue.empty?) do
       current = queue.shift
+      p "Curr: #{current}"
       current_pos = current.last
+      p "Pos: #{current_pos}"
 
       return current if current_pos == finish
 
       possible_moves(current_pos).each do |move|
+        p "Move: #{move}"
+        # If already visited that tile, skip it
         next if order.include?(move)
 
         next_move = current + [move]
-        queue << next_move
-        order << move
+        queue.push(next_move)
+        order.push(move)
       end
     end
   end
