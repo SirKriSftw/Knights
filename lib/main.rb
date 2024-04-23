@@ -1,5 +1,5 @@
 require_relative "Knight"
 
-knight = Knight.new([1,2])
+knight = Knight.new()
 
-p knight.possible_moves
+p knight.knight_moves([1,2], [7,1])
